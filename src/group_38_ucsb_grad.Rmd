@@ -1,0 +1,34 @@
+---
+title: "Group 38 UCSB domestic grad enrollment"
+author: "Conner Smith, Sam Kuglen"
+date: "11/12/2021"
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    theme: flatly
+---
+
+# **1. Overview**
+
+This report explores domestic graduate enrollment (individual counts) at UCSB by race / ethnicity from 2008 - 2019. The data comes directly from the UCSB Office of Budget and Planning Campus Profiles: https://bap.ucsb.edu/institutional-research/campus-profiles
+
+
+```{r setup, include=FALSE, message =FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+# Install Packages.
+
+library(tidyverse)
+library(here)
+```
+
+```{r}
+# Read in the data. 
+
+grad <- read_csv(here("data", "ucsb_grad_data.csv"))
+
+# Pushing all changes to Github for partner to complete next step. 
+
+```
+
