@@ -26,9 +26,18 @@ library(here)
 ```{r}
 # Read in the data. 
 
-grad <- read_csv(here("data", "ucsb_grad_data.csv"))
+ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 
 # Pushing all changes to Github for partner to complete next step. 
 
+```
+
+```{r}
+# Add column graph showing change in domestic graduate enrollment
+
+ggplot(ucsb_grad) +
+  geom_col(aes(x = year_abbr, 
+               y = domestic_enrollment, 
+               fill = ethnicity))
 ```
 
