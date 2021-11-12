@@ -32,12 +32,17 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 
 ```
 
+# **Change in Graduate Student Enrollment over Time** 
+
 ```{r}
 # Add column graph showing change in domestic graduate enrollment
+# Added a new command to change the position to "fill" and added axis labels.
 
 ggplot(ucsb_grad) +
   geom_col(aes(x = year_abbr, 
                y = domestic_enrollment, 
-               fill = ethnicity))
+               fill = ethnicity), position = "fill") +
+  labs(x = "Year", y = "Domestic Enrollment")
+
 ```
 
