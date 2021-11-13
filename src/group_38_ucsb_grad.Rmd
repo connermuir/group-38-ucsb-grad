@@ -9,40 +9,47 @@ output:
     theme: flatly
 ---
 
-# **1. Overview**
+## **Overview**
 
-This report explores domestic graduate enrollment (individual counts) at UCSB by race / ethnicity from 2008 - 2019. The data comes directly from the UCSB Office of Budget and Planning Campus Profiles: https://bap.ucsb.edu/institutional-research/campus-profiles
+This report explores domestic graduate enrollment (individual counts) at UCSB by race / ethnicity from 2008 - 2019. The data comes directly from the [UCSB Office of Budget and Planning Campus Profiles.](https://bap.ucsb.edu/institutional-research/campus-profiles)
 
-
-```{r setup, include=FALSE, message =FALSE}
+## **Setup**
+```{r setup, include=TRUE, message =FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
-# Install Packages.
+# Attach Packages.
 
 library(tidyverse)
 library(here)
 ```
 
 ```{r}
-# Read in the data. 
-
+# 2A: Read in the data. 
 ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 
 # Pushing all changes to Github for partner to complete next step. 
 
 ```
 
-# **Change in Graduate Student Enrollment over Time** 
+## **Change in Graduate Student Enrollment over Time** 
 
 ```{r}
-# Add column graph showing change in domestic graduate enrollment
-# Added a new command to change the position to "fill" and added axis labels.
-
+# 2B: Added column graph showing change in domestic graduate enrollment.
+# 2C: Added a new command to change the position to "fill" and added axis labels.
+# 2D: Added graph title, set theme to `theme_minimal`, added figure caption
 ggplot(ucsb_grad) +
   geom_col(aes(x = year_abbr, 
                y = domestic_enrollment, 
-               fill = ethnicity), position = "fill") +
-  labs(x = "Year", y = "Domestic Enrollment")
-
+               fill = ethnicity), 
+           position = "fill") +
+  labs(x = "Year", 
+       y = "Domestic Enrollment",
+       title = "UC Santa Barbara Domestic Graduate Student Enrollment",
+       subtitle = "2008 - 2019") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  guides(fill = guide_legend("Ethnicity")) # update legend title
 ```
 
+**Figure 1.** UC Santa Barbara domestic graduate student enrollment from 2008 - 2014. Data: UCSB Office of Budget and Planning Campus Profiles.
