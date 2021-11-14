@@ -9,11 +9,11 @@ output:
     theme: flatly
 ---
 
-## **Overview**
+## **1. Overview**
 
 This report explores domestic graduate enrollment (individual counts) at UCSB by race / ethnicity from 2008 - 2019. The data comes directly from the [UCSB Office of Budget and Planning Campus Profiles.](https://bap.ucsb.edu/institutional-research/campus-profiles)
 
-## **Setup**
+## **2. Setup**
 ```{r setup, include=TRUE, message =FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
@@ -31,7 +31,7 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 
 ```
 
-## **Change in Graduate Student Enrollment over Time** 
+## **3. Change in Graduate Student Enrollment over Time** 
 
 ```{r}
 # 2B: Added column graph showing change in domestic graduate enrollment.
@@ -43,7 +43,7 @@ ggplot(ucsb_grad) +
                fill = ethnicity), 
            position = "fill") +
   labs(x = "Year", 
-       y = "Domestic Enrollment",
+       y = "Domestic Enrollment (%)",
        title = "UC Santa Barbara Domestic Graduate Student Enrollment",
        subtitle = "2008 - 2019") +
   theme_minimal() +
@@ -52,4 +52,4 @@ ggplot(ucsb_grad) +
   guides(fill = guide_legend("Ethnicity")) # update legend title
 ```
 
-**Figure 1.** UC Santa Barbara domestic graduate student enrollment from 2008 - 2014. Data: UCSB Office of Budget and Planning Campus Profiles.
+**Figure 1.** *This figure shows UC Santa Barbara domestic graduate student enrollment by race from 2008 - 2019. White students consistently make up more than half of all graduate enrollment. Data: UCSB Office of Budget and Planning Campus Profiles.*
